@@ -52,6 +52,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Function to reschedule appointment (for demonstration purposes, just an alert)
     function rescheduleAppointment(appointmentId) {
         alert(`Reschedule appointment with ID ${appointmentId}`);
+        window.location.href = 'services.html';
     }
     
     const returnedFromServices = localStorage.getItem('returnedFromServices');
