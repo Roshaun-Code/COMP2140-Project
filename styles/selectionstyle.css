@@ -69,12 +69,17 @@ label {
 #customizationOptions,
 #priceBreakdown,
 #appointmentScheduling,
-#calendar {
+#calendar,
+#payment{
     margin-top: 20px;
     background-color: #fff;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.payment{
+    height: 34px;
 }
 
 select,
@@ -166,82 +171,3 @@ footer {
     bottom: 0;
     width: 100%;
 }
-
-/* other css*/
-
-
-
-/*
-#customizationOptions,
-#priceBreakdown,
-#appointmentScheduling,
-#calendar {
-    margin-top: 20px;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-}
-
-#availabilityCalendar {
-    border-collapse: collapse;
-    width: 100%;
-}
-
-#availabilityCalendar th,
-#availabilityCalendar td {
-    border: 1px solid #ddd;
-    padding: 8px;
-    text-align: center;
-}
-
-#availabilityCalendar th {
-    background-color: #333;
-    color: #fff;
-}
-
-.available {
-    background-color: #7fff7f;
-}
-
-.unavailable {
-    background-color: #ff7f7f;
-}
-
-.booked {
-    background-color: #999;
-    color: #fff;
-}
-
-#bookNowBtn,
-#resetBtn {
-    margin-top: 10px;
-    padding: 10px;
-    background-color: #333;
-    color: #fff;
-    cursor: pointer;
-    border: none;
-    border-radius: 5px;
-    transition: background-color 0.3s ease-in-out;
-}
-
-#bookNowBtn:hover,
-#resetBtn:hover {
-    background-color: #555;
-}
-
-#resetBtn {
-    margin-left: 10px;
-}
-
-footer {
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    padding: 10px;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-}
-
-*/

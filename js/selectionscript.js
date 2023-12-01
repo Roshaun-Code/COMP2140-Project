@@ -99,12 +99,15 @@ function calculateTotal() {
 document.getElementById('bookNowBtn').addEventListener('click', generateBookingEmail);
 
 function showBookingSection() {
+    const payment = document.getElementById('payment');
     const priceBreakdown = document.getElementById('priceBreakdown');
     const calendar = document.getElementById('calendar');
     const bookNowBtn = document.getElementById('bookNowBtn');
 
     // Hide the price breakdown
-    priceBreakdown.style.display = 'none';
+    priceBreakdown.style.display = 'block';
+
+    payment.style.display = 'block';
 
     // Display the availability calendar
     calendar.style.display = 'block';

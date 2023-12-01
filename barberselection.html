@@ -149,6 +149,17 @@
             <p id="finalTotal">Total: $0.00</p>
         </div>
         
+        <div id="payment" style="display: none;">
+            <label for="payment"><h3>Payment Method:</h3></label>
+            <select id="payment" name="payment" required>
+                <option value="">--Please choose an option--</option>
+                <option value="robertbailey">Cash</option>
+                <option value="oaklandporter">Credit/Debit Card</option>
+                <option value="roshaunporter">Wire transfer</option>
+            </select>
+        </div>
+
+
         <div id="calendar" style="display: none;">
             <h3>Availability Calendar</h3>
             <table id="availabilityCalendar">
@@ -288,6 +299,7 @@
             <br>
             <button onclick="scheduleAppointment()">Book Now</button>
         </div>
+
 
         
 
