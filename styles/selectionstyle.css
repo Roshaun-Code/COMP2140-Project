@@ -1,0 +1,247 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+header {
+    background-color: #222;
+    color: #fff;
+    padding: 1em;
+    text-align: center;
+}
+
+section {
+    margin: 20px;
+}
+
+h2 {
+    color: #333;
+}
+
+.serviceContainer {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.serviceOption {
+    margin-right: 20px;
+    margin-bottom: 10px;
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+.serviceOption:hover {
+    transform: scale(1.05);
+}
+
+button {
+    background-color: #4285f4;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #3367d6;
+}
+
+.customizationOptions {
+    background-color: #fff;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+h3 {
+    color: #4285f4;
+}
+
+label {
+    margin-bottom: 5px;
+}
+
+#customizationOptions,
+#priceBreakdown,
+#appointmentScheduling,
+#calendar {
+    margin-top: 20px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+select,
+input[type="date"],
+input[type="time"] {
+    margin-bottom: 10px;
+    padding: 8px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+#priceBreakdown {
+    background-color: #fff;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+#selectedServicesList {
+    list-style: none;
+    padding: 0;
+}
+
+#selectedServicesList li {
+    margin-bottom: 5px;
+}
+
+#finalTotal {
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+#appointmentScheduling,
+#calendar {
+    background-color: #fff;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+#availabilityCalendar {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#availabilityCalendar th,
+#availabilityCalendar td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+#availabilityCalendar th {
+    background-color: #4285f4;
+    color: #fff;
+}
+
+#availabilityCalendar .available {
+    background-color: #4caf50;
+    color: #fff;
+}
+
+#availabilityCalendar .unavailable,
+#availabilityCalendar .booked {
+    background-color: #e74c3c;
+    color: #fff;
+}
+
+#bookNowBtn,
+#resetBtn {
+    background-color: #4285f4;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+#bookNowBtn:hover,
+#resetBtn:hover {
+    background-color: #3367d6;
+}
+
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 5px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+/* other css*/
+
+
+
+/*
+#customizationOptions,
+#priceBreakdown,
+#appointmentScheduling,
+#calendar {
+    margin-top: 20px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+#availabilityCalendar {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#availabilityCalendar th,
+#availabilityCalendar td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+#availabilityCalendar th {
+    background-color: #333;
+    color: #fff;
+}
+
+.available {
+    background-color: #7fff7f;
+}
+
+.unavailable {
+    background-color: #ff7f7f;
+}
+
+.booked {
+    background-color: #999;
+    color: #fff;
+}
+
+#bookNowBtn,
+#resetBtn {
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #333;
+    color: #fff;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease-in-out;
+}
+
+#bookNowBtn:hover,
+#resetBtn:hover {
+    background-color: #555;
+}
+
+#resetBtn {
+    margin-left: 10px;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+*/

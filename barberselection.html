@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/selectionstyle.css">
+    <title>Service Selection</title>
+</head>
+
+<body>
+    <header>
+        <h1>Service Selection for Customers</h1>
+    </header>
+
+    <section id="serviceSelection">
+        <h2>Select Your Service</h2>
+        <div class="serviceContainer">
+            <div class="serviceOption">
+                <input type="checkbox" id="haircut" value="1000">
+                <label for="haircut">Haircut</label>
+            </div>
+            <div class="serviceOption">
+                <input type="checkbox" id="hairBeard" value="1500">
+                <label for="hairBeard">Hair & Beard</label>
+            </div>
+            <div class="serviceOption">
+                <input type="checkbox" id="hairDo" value="0" onchange="updateHairDoValue()">
+                <label for="hairDo">Hair-Do</label>
+            </div>
+            <div class="serviceOption">
+                <input type="checkbox" id="hairColouring" value="1000">
+                <label for="hairColouring">Hair Colouring</label>
+            </div>
+
+            <div class="serviceOption">
+                <input type="checkbox" id="facial" value="500">
+                <label for="facial">Facial</label>
+            </div>
+        </div>
+
+        <button onclick="showCustomization()">Submit Services</button>
+
+        <div class="customizationOptions" id="customizationOptions" style="display: none;">
+            <h3>Customization Options</h3>
+            <div id="haircutCustomization" style="display: none;">
+                <h4>Haircut</h4>
+                <h5>This service costs $1000</h5>
+                <p>Choose Haircut Style:</p>
+                <select id="haircutStyle">
+                    <option value="taperFade">Taper Fade</option>
+                    <option value="shavedHead">Shaved Head/Bald</option>
+                    <option value="buzzcut">Buzzcut/Lowcut</option>
+                    <option value="lineUp">Line Up</option>
+                </select>
+
+                <div id="prefbarber" style="display: none;">
+                    <h4>Barber Selection</h4>
+                    <p>Choose your preferred barber:</p>
+                    <select id="barbers">
+                        <option value="robert">Robert Bailey</option>
+                        <option value="oakland">Oakland Porter</option>
+                        <option value="roshaun">Roshaun Porter</option>
+                    </select>
+                </div>
+
+
+            </div>
+
+            <div id="hairDoCustomization" style="display: none;">
+                <h4>Hair-Do</h4>
+                <p>Choose a hair style:</p>
+                <select id="hairDoStyle" onchange="updateHairDoValue()">
+                    <option value="4500">Braids</option>
+                    <option value="7000">Sew-in</option>
+                    <option value="1500">Relaxing Hair</option>
+                    <option value="8000">Wig Installation</option>
+                </select>
+                <p>Price: <span id="hairDoCustomizationValue">$0.00</span></p>
+
+                <div id="prefstylist" style="display: none;">
+                    <h4>Hair Stylist Selection</h4>
+                    <p>Choose your preferred hair stylist:</p>
+                    <select id="stylist">
+                        <option value="felecia">Felecia Hembram</option>
+                        <option value="stephannie">Stephannie James</option>
+                        <option value="jennifer">Jennifer Mcfarlene</option>
+                    </select>
+                </div>
+
+            </div>
+
+
+
+            <div id="hairColouringCustomization" style="display: none;">
+                <h4>Hair Colouring</h4>
+                <h5>This service costs $1000</h5>
+                <p>Choose Hair Colour:</p>
+                <select id="hairColour">
+                    <option value="black">Black</option>
+                    <option value="brown">Brown</option>
+                    <option value="blonde">Blonde</option>
+                    <option value="red">Red</option>
+                </select>
+            </div>
+
+            <div id="hairBeardCustomization" style="display: none;">
+                <h4>Hair & Beard</h4>
+                <h5>This service costs $1500</h5>
+                <p>Choose Haircut Style:</p>
+                <select id="hairBeardStyle">
+                    <option value="taperFade">Taper Fade</option>
+                    <option value="shavedHead">Shaved Head/Bald</option>
+                    <option value="buzzcut">Buzzcut/Lowcut</option>
+                    <option value="lineUp">Line Up</option>
+                </select>
+
+                <p>Choose Beard Style:</p>
+                <select id="beardStyle">
+                    <option value="cleanShaven">Clean Shaven</option>
+                    <option value="goatee">Goatee</option>
+                    <option value="chinStrap">Chin Strap</option>
+                    <option value="stubble">Stubble</option>
+                </select>
+
+                <div id="prefbarber" style="display: none;">
+                    <h4>Barber Selection</h4>
+                    <p>Choose your preferred barber:</p>
+                    <select id="barbers">
+                        <option value="robert">Robert Bailey</option>
+                        <option value="oakland">Oakland Porter</option>
+                        <option value="roshaun">Roshaun Porter</option>
+                    </select>
+                </div>
+
+            </div>
+
+            <div id="facialCustomization" style="display: none;">
+                <h4>Facial</h4>
+                <h5>This service costs $500</h5>
+            </div>
+
+            <button onclick="calculateTotal()">Complete Customization</button>
+        </div>
+
+        <div id="priceBreakdown" style="display: none;">
+            <h3>Price Breakdown</h3>
+            <ul id="selectedServicesList"></ul>
+            <p id="finalTotal">Total: $0.00</p>
+        </div>
+        
+        <div id="calendar" style="display: none;">
+            <h3>Availability Calendar</h3>
+            <table id="availabilityCalendar">
+                <thead>
+                    <tr>
+                        <th>Time</th>
+                        <th>Sunday</th>
+                        <th>Monday</th>
+                        <th>Tuesday</th>
+                        <th>Wednesday</th>
+                        <th>Thursday</th>
+                        <th>Friday</th>
+                        <th>Saturday</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>9:00 AM</td>
+                        <td class="available">Available</td>
+                        <td class="available">Available</td>
+                        <td class="unavailable">Booked</td>
+                        <td class="available">Available</td>
+                        <td class="available">Available</td>
+                        <td class="unavailable">Booked</td>
+                        <td class="available">Available</td>
+                    </tr>
+                    <tr>
+                        <td>10:00 AM</td>
+                        <!-- Add your logic for availability here -->
+                        <td class="unavailable">Booked</td>
+                        <td class="unavailable">Booked</td>
+                        <td class="available">Available</td>
+                        <td class="unavailable">Booked</td>
+                        <td class="available">Available</td>
+                        <td class="available">Available</td>
+                        <td class="unavailable">Booked</td>
+                    </tr>
+                    <tr>
+                        <td>11:00 AM</td>
+                        <!-- Add your logic for availability here -->
+                        <td class="available">Available</td>
+                        <td class="available">Available</td>
+                        <td class="available">Available</td>
+                        <td class="unavailable">Booked</td>
+                        <td class="unavailable">Booked</td>
+                        <td class="available">Available</td>
+                        <td class="available">Available</td>
+                    </tr>
+                    <tr>
+                        <td>12:00 PM</td>
+                        <!-- Add your logic for availability here -->
+                        <td class="unavailable">Booked</td>
+                        <td class="available">Available</td>
+                        <td class="unavailable">Booked</td>
+                        <td class="available">Available</td>
+                        <td class="unavailable">Booked</td>
+                        <td class="available">Available</td>
+                        <td class="available">Available</td>
+                    </tr>
+                    <tr>
+                        <td>1:00 PM</td>
+                        <!-- Add your logic for availability here -->
+                        <td class="available">Available</td>
+                        <td class="available">Available</td>
+                        <td class="available">Available</td>
+                        <td class="available">Available</td>
+                        <td class="available">Available</td>
+                        <td class="unavailable">Booked</td>
+                        <td class="available">Available</td>
+                    </tr>
+                    <tr>
+                        <td>2:00 PM</td>
+                        <!-- Add your logic for availability here -->
+                        <td class="unavailable">Booked</td>
+                        <td class="available">Available</td>
+                        <td class="available">Available</td>
+                        <td class="available">Available</td>
+                        <td class="unavailable">Booked</td>
+                        <td class="available">Available</td>
+                        <td class="unavailable">Booked</td>
+                    </tr>
+                    <tr>
+                        <td>3:00 PM</td>
+                        <!-- Add your logic for availability here -->
+                        <td class="unavailable">Booked</td>
+                        <td class="available">Available</td>
+                        <td class="unavailable">Booked</td>
+                        <td class="unavailable">Booked</td>
+                        <td class="available">Available</td>
+                        <td class="unavailable">Booked</td>
+                        <td class="unavailable">Booked</td>
+                    </tr>
+                    <tr>
+                        <td>4:00 PM</td>
+                        <!-- Add your logic for availability here -->
+                        <td class="available">Available</td>
+                        <td class="available">Available</td>
+                        <td class="unavailable">Booked</td>
+                        <td class="available">Available</td>
+                        <td class="available">Available</td>
+                        <td class="available">Available</td>
+                        <td class="unavailable">Booked</td>
+                    </tr>
+                    <tr>
+                        <td>5:00 PM</td>
+                        <!-- Add your logic for availability here -->
+                        <td class="unavailable">Booked</td>
+                        <td class="unavailable">Booked</td>
+                        <td class="available">Available</td>
+                        <td class="available">Available</td>
+                        <td class="available">Available</td>
+                        <td class="unavailable">Booked</td>
+                        <td class="unavailable">Booked</td>
+                    </tr>
+                    <tr>
+                        <td>6:00 PM</td>
+                        <!-- Add your logic for availability here -->
+                        <td class="available">Available</td>
+                        <td class="available">Available</td>
+                        <td class="unavailable">Booked</td>
+                        <td class="unavailable">Booked</td>
+                        <td class="available">Available</td>
+                        <td class="unavailable">Booked</td>
+                        <td class="unavailable">Booked</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div id="appointmentScheduling" style="display: none;">
+            <h3>Schedule Appointment</h3>
+            <label for="appointmentDate">Date:</label>
+            <input type="date" id="appointmentDate" required>
+            <br>
+            <label for="appointmentTime">Time:</label>
+            <input type="time" id="appointmentTime" required>
+            <br>
+            <button onclick="scheduleAppointment()">Book Now</button>
+        </div>
+
+        
+
+        <button onclick="generateBookingEmail()" id="bookNowBtn" style="display: none;">Book Now</button>
+        <button onclick="resetSelection()">Clear</button>
+
+    </section>
+
+    <footer>
+        <p>&copy; 2023 Service Selection System</p>
+    </footer>
+
+    <script src="js/selectionscript.js"></script>
+</body>
+
+</html>

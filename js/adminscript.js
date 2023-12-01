@@ -63,7 +63,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let newAppoint = document.querySelector(".buttons")
     newAppoint.addEventListener("click", () => {
         localStorage.setItem('returnedFromServices', 'true');
-        window.location.href = 'barberindex.html';
+        window.location.href = 'barberselection.html';
     });
 
 
