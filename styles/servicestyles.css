@@ -1,12 +1,21 @@
+
+:root{
+    --maincolor: #172A3A;
+    --backgroundcolor: #dcfce7;
+    --accent: #508991;
+    --accent2: #004346;
+}
+
+
 body {
     font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f2f2f2;
+    background-color: var(--backgroundcolor);
 }
 
 header {
-    background-color: #333;
+    background-color: var(--maincolor);
     color: white;
     text-align: center;
     padding: 1em;
@@ -15,7 +24,7 @@ header {
 section {
     margin: 20px;
     padding: 20px;
-    background-color: white;
+    background-color: var(--backgroundcolor);
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
@@ -30,7 +39,7 @@ section {
 }
 
 .customizationOptions button {
-    background-color: #4CAF50;
+    background-color: var(--accent);
     color: white;
     padding: 10px;
     border: none;
@@ -41,7 +50,7 @@ section {
 }
 
 .customizationOptions button:hover {
-    background-color: #45a049;
+    background-color: var(--accent);
 }
 
 select {
@@ -50,16 +59,17 @@ select {
 }
 
 button {
-    background-color: #4CAF50;
+    background-color: var(--accent2);
     color: white;
     padding: 10px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    margin-bottom: 5px;
 }
 
 button:hover {
-    background-color: #45a049;
+    background-color: var(--accent);
 }
 
 #priceBreakdown {
@@ -73,7 +83,7 @@ button:hover {
 }
 
 footer {
-    background-color: #333;
+    background-color: var(--maincolor);
     color: white;
     text-align: center;
     padding: 1px;
