@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        form {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+
+
+
+  
+</head>
+<body>
+
+
+  <form id="loginForm">
+      <h2>Login</h2>
+      <label for="loginUsername">Username:</label>
+      <input type="text" id="loginUsername" name="loginUsername" required>
+
+      <label for="loginPassword">Password:</label>
+      <input type="password" id="loginPassword" name="loginPassword" required>
+
+      <button type="submit">Login</button>
+  </form>
+
+  
+  <script>
+      document.getElementById("loginForm").addEventListener("submit", function (event) {
+          // Simulate a login process (replace this with your actual login logic)
+          var username = document.getElementById("loginUsername").value;
+          var password = document.getElementById("loginPassword").value;
+
+          // Check if the credentials are valid (example: username is "user" and password is "password")
+          if (username === "user" && password === "password") {
+                // Redirect to the "first_main.html" page upon successful login
+                window.location.href = "admin.html";
+          } else if (username === "manager" && password === "password") {
+                window.location.href = "barberpage.html";
+          }  else {
+              // Provide an error message or take other actions for unsuccessful login
+              alert("Invalid credentials. Please try again.");
+          }
+
+          event.preventDefault(); // Prevent the form from submitting
+      });
+  </script>
+
+  
+</body>
+</html>

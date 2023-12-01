@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="/styles/barberstyle.css">
+    <title>Staff Management System</title>
+</head>
+<body>
+    <div id="top-banner">
+        <span>Account: Manager</span>
+        <button id="logout-button">Logout</button>
+    </div>
+    <nav>
+        <ul>
+            <li><a href="#staff-list">Staff List</a></li>
+            <li><a href="service.html">Service Allocation</a></li>
+            <li><a href="#schedule">Schedule</a></li>
+          
+        </ul>
+    </nav>
+    <section id="staff-list">
+        <h2>Staff List</h2>
+    
+        <h3>Barbers</h3>
+        <details>
+            <summary>Robert Bailey</summary>
+            <p>Email: robertbaileybusiness@gmail.com</p>
+            <p>Cell: (876) 389 - 3452</p>
+            <p>Role: Barber</p>
+            <p>Work Hours: (Sunday - Saturday) 9 AM - 5 PM</p>
+            <p>Expertise: Haircuts</p>
+        </details>
+        <details>
+            <summary>Oakland Porter</summary>
+            <p>Email: oaklandporterbusiness@gmail.com</p>
+            <p>Cell: (876) 212 - 1221</p>
+            <p>Role: Barber</p>
+            <p>Work Hours: (Sunday - Saturday) 11 AM - 7 PM</p>
+            <p>Expertise: Haircuts</p>
+        </details>
+        <details>
+            <summary>Roshaun Porter</summary>
+            <p>Email: roshaunporterbusiness@gmail.com</p>
+            <p>Cell: (876) 435 - 2341</p>
+            <p>Role: Barber</p>
+            <p>Work Hours: (Sunday - Saturday) 10 AM - 6 PM</p>
+            <p>Expertise: Haircuts</p>
+        </details>
+    
+        <h3>Hairdressers</h3>
+        <details>
+            <summary>Felecia Hembram</summary>
+            <p>Email: feleciabusiness@gmail.com</p>
+            <p>Cell: (876) 582 - 3232</p>
+            <p>Role: Hairdresser</p>
+            <p>Work Hours: (Sunday - Saturday) 10 AM - 6 PM</p>
+            <p>Expertise: Sew In, Wig Installation</p>
+        </details>
+        <details>
+            <summary>Stephannie James</summary>
+            <p>Email: stephbusiness@gmail.com</p>
+            <p>Cell: (876) 423 - 4321</p>
+            <p>Role: Hairdresser</p>
+            <p>Work Hours: (Sunday - Saturday) 9 AM - 5 PM</p>
+            <p>Expertise: Relaxing, Facials</p>
+        </details>
+        <details>
+            <summary>Jennifer Mcfarlene</summary>
+            <p>Contact: mcfarlenebusiness@gmail.com</p>
+            <p>Cell:  (876) 543 - 9821</p>
+            <p>Role: Hairdresser</p>
+            <p>Work Hours: (Sunday - Saturday) 11 AM - 7 PM</p>
+            <p>Expertise: Braids</p>
+        </details>
+    </section>    
+    
+
+    
+    <section id="schedule">
+        <h2>Staff Schedule - December 2023</h2>
+        <div id="calendar-container"></div> 
+    </section>    
+
+    <script>
+        // staff assignment for 7 days 
+        const staffAssignments = {
+            "1": ["Robert Bailey"],
+            "2": ["Felecia Hembram", "Oakland Porter"],
+        };
+        
+        function generateCalendar(year, month, staffAssignments) {
+            const monthNames = ["January", "February", "March", "April", "May", "June",
+                                "July", "August", "September", "October", "November", "December"];
+            let calendar = `<table><caption>${monthNames[month]} ${year}</caption><tr><th>Sun</th><th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th><th>Sat</th></tr>`;
+            let date = new Date(year, month, 1);
+            let firstDayIndex = date.getDay();
+            let daysInMonth = new Date(year, month + 1, 0).getDate();
+    
+            calendar += '<tr>';
+            for (let i = 0; i < firstDayIndex; i++) {
+                calendar += '<td></td>'; // days of the week empty cells
+            }
+    
+            for (let day = 1; day <= daysInMonth; day++) {
+                let staffHtml = staffAssignments[day] ?
+                    staffAssignments[day].map(name => `<span class="staff-name">${name}</span>`).join(' ') :
+                    '';
+    
+                if ((day + firstDayIndex - 1) % 7 === 0 && day !== 1) {
+                    calendar += '</tr><tr>'; // Start a new row every Sunday (except the first one)
+                }
+                calendar += `<td><div>${day}</div><div class="staff-list">${staffHtml}</div></td>`;
+            }
+    
+            // Fill in any empty cells at the end of the last row
+            let lastDayIndex = new Date(year, month, daysInMonth).getDay();
+            let nextDays = 7 - lastDayIndex - 1;
+            for (let i = 0; i < nextDays; i++) {
+                calendar += '<td></td>';
+            }
+    
+            calendar += '</tr></table>';
+    
+            document.getElementById('calendar-container').innerHTML = calendar;
+        }
+    
+        // december calendar and staff
+        generateCalendar(2023, 11, staffAssignments); 
+    </script>
+    
+    
+    
+    
+</body>
+</html>

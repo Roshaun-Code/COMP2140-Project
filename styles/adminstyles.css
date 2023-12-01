@@ -1,0 +1,251 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+:root{
+    --maincolor: #172A3A;
+    --backgroundcolor: #dcfce7;
+    --card: #508991;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    font-family: 'Roboto', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+}
+
+body{
+    min-height: 100vh;
+}
+
+#main-grid{
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    grid-template-rows: 166px 1fr;
+    min-height: 1000px;
+}
+
+.header{
+    background-color: white;
+    box-shadow: 0 0 15px rgb(0 0 0 / 0.5);
+    z-index: 1;
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+    padding: 30px;
+    padding-top: 15px;
+}
+
+.profile_picture{
+    height: 3.5rem;
+    width: 3.5rem;
+    border-radius: 50%;
+}
+
+.profile_picture2{
+    height: 2.5rem;
+    width: 2.5rem;
+    border-radius: 50%;
+}
+
+.dashboard-icon{
+    height: 2.5rem;
+    width: 2.5rem;
+    cursor: pointer;
+    filter: invert(1);
+}
+
+.notifications{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 35px;
+}
+
+.notification-icon{
+    cursor: pointer;
+}
+
+.user-info{
+    display: grid;
+    grid-template-columns: 4rem 1fr;
+    grid-template-rows: 1fr 1fr;
+    align-items: center;
+}
+
+.user-info > h3{
+    font-size: 1.3rem;
+}
+
+.header .user-info > img{
+    grid-row: span 2;
+}
+
+.header .searchbar > img:hover{
+    cursor: pointer;
+}
+
+.searchbar{
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+.searchbar-icon{
+    height: 1.8rem;
+    width: 1.8rem;
+}
+
+.buttons{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    justify-content: flex-end;
+}
+
+.buttons > button{
+    width: 125px;
+    height: 50px;
+    border: none;
+    outline: none;
+    border-radius: 15px;
+    background-color: var(--maincolor);
+    color: white;
+    font-weight: 700;
+}
+
+button:hover{
+    cursor: pointer;
+}
+
+input{
+    width: 600px;
+    height: 30px;
+    background-color: var(--backgroundcolor);
+    border-radius: 25px;
+    border: none;
+}
+
+.side-bar{
+    background-color: var(--maincolor);
+    /* box-sizing: border-box; */
+    padding: 20px;
+    grid-row: 1/3;
+    display: flex;
+    flex-direction: column;
+    gap: 65px;
+    color: white;
+    font-weight: 700;
+}
+
+
+.side-bar a{
+    text-decoration: none;
+    color: white;
+}
+
+.side-bar .dashboard{
+    display: flex;
+    align-items: center;
+    font-size: 2rem;
+    gap: 10px;
+}
+
+.side-bar .navigation{
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.navigation-selection{
+    display: flex;
+    gap: 25px;
+    align-items: center;
+}
+
+.settings-selection{
+    display: flex;
+    gap: 25px;
+    align-items: center;
+}
+
+.side-bar .settings{
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.navigation-icon{
+    cursor: pointer;
+    filter: invert(1);
+}
+
+.settings-icon{
+    cursor: pointer;
+    filter: invert(1);
+}
+
+.main{
+    box-sizing: border-box;
+    padding: 2rem;
+    background-color: var(--backgroundcolor); 
+}
+
+.projects{
+    grid-row: span 2;
+}
+
+.cards{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 250px;
+    gap: 2rem;
+    grid-row: 1/3;
+}
+
+.main .projects > h4 {
+    grid-column: span 2;
+    margin-bottom: 1rem;
+}
+
+.card{
+    background-color: white;
+    padding-top: 40px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 15px;
+    display: grid;
+    grid-template-rows: 4fr 1fr;
+    border-radius: 10px;
+    border-left: 10px solid var(--card);
+    box-shadow: 3px 3px 5px rgb(0 0 0 / 0.2);
+    transition: 300ms;
+}
+
+.card:hover{
+    transform: scale(1.05);
+    box-shadow: 1px 1px 8px rgb(0 0 0 / 0.4);
+}
+
+.card .card-content{
+    display: flex;
+    flex-direction: column;
+    color: #87817c;
+}
+
+.card .card-content > h3{
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+    color: black;
+}
+
+.card .icons{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 15px;
+    cursor: pointer;
+}

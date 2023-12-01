@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="styles/barberstyle.css">
+    <title>Service Allocation System</title>
+</head>
+<body>
+    <div id="top-banner">
+        <span>Account: Manager</span>
+        <button id="logout-button">Logout</button>
+    </div>
+    <nav>
+        <ul>
+            <li><a href="index.html">Staff List</a></li>
+            <li><a href="#service">Service Allocation</a></li>
+            <li><a href="index.html#schedule">Schedule</a></li>
+          
+        </ul>
+    </nav>
+    <section id="service-allocation">
+        <h2>Service Allocation</h2>
+        <form id="service-allocation-form">
+            <label for="customer">Customer Name:</label>
+            <input type="text" id="customer-name" name="customer-name">
+            <label for="service">Select Service:</label>
+            <select id="service" name="service">
+            </select>
+    
+            <label for="staff-member">Assign to Staff Member:</label>
+            <select id="staff-member" name="staff-member">
+                <option value="robert-bailey">Robert Bailey</option>
+                <option value="oakland-porter">Oakland Porter</option>
+                <option value="roshaun-porter">Roshaun Porter</option>
+            
+                <option value="felecia-hembram">Felecia Hembram</option>
+                <option value="stephannie-james">Stephannie James</option>
+                <option value="jennifer-mcfarlene">Jennifer Mcfarlene</option>
+
+            </select>
+            <label for="service-date">Service Date:</label>
+            <input type="date" id="service-date" name="service-date">
+
+            <label for="service-time">Service Time:</label>
+            <input type="time" id="service-time" name="service-time">
+
+    
+            <input type="submit" id="submit-assignment" value="Assign Staff to Service">
+
+        </form>
+    </section>
+    <section id="schedule">
+        <h2>Staff Schedule - December 2023</h2>
+        <div id="calendar-container"></div> 
+    </section>    
+
+    <script>
+        const staffCategories = {
+            'robert-bailey': 'barber',
+            'oakland-porter': 'barber',
+            'roshaun-porter': 'barber',
+            'felecia-hembram': 'hairdresser',
+            'stephannie-james': 'hairdresser',
+            'jennifer-mcfarlene': 'hairdresser'
+                        
+        };
+        const services = {
+            'barber': ['Line Up', 'Taper Fade', 'Shaved Head/Bald', 'Buzz Cut/Lowcut', 'Clean Shaven (Facial)','Goatee (Facial)', 'Chin Strap (Facial)', 'Stubble (Facial)'],
+            'hairdresser': ['Braids', 'Sew In', 'Relaxing Hair', 'Wig Installation',]
+        };
+        function updateServiceOptions() {
+            const selectedStaffMember = document.getElementById('staff-member').value;
+            const category = staffCategories[selectedStaffMember];
+            const serviceSelect = document.getElementById('service');
+
+            // clear current options
+            serviceSelect.innerHTML = '';
+
+            // add new options based on the category
+            if (services[category]) {
+                services[category].forEach(service => {
+                    const option = document.createElement('option');
+                    option.value = service.toLowerCase().replace(/\s+/g, '-');
+                    option.textContent = service;
+                    serviceSelect.appendChild(option);
+                });
+            }
+        }
+        document.getElementById('service-allocation-form').addEventListener('submit', function(event) {
+            event.preventDefault(); // prevent the default form submission
+
+            // retrieve form values
+            const customerName = document.getElementById('customer-name').value;
+            const selectedService = document.getElementById('service').options[document.getElementById('service').selectedIndex].text;
+            const selectedStaffMember = document.getElementById('staff-member').options[document.getElementById('staff-member').selectedIndex].text;
+            const selectedDate = document.getElementById('service-date').value;
+            const selectedTime = document.getElementById('service-time').value;
+
+            // get the day from date
+            const date = new Date(selectedDate + 'T' + selectedTime + ':00'); // time and seconds
+            const timezoneOffset = date.getTimezoneOffset() * 60000; // Convert to milliseconds
+            const adjustedDate = new Date(date.getTime() - timezoneOffset); // Adjust for timezone 
+
+            const day = adjustedDate.getDate().toString();
+
+            // new assignment object
+            const newAssignment = {
+                name: selectedStaffMember, 
+                customer: customerName, 
+                service: selectedService, 
+                time: selectedTime
+            };
+
+            // add new assignments to assignments object
+            if (!staffAssignments[day]) {
+                staffAssignments[day] = [];
+            }
+            staffAssignments[day].push(newAssignment);
+
+            // regenerate updated calendar
+            generateCalendar(2023, 11, staffAssignments);
+        });
+
+
+        // Event listener for staff member selection
+        document.getElementById('staff-member').addEventListener('change', updateServiceOptions);
+
+        // update on page load
+        updateServiceOptions();
+
+
+        // staff assignment for 2 days 
+        const staffAssignments = {
+            "1": [{ name: "Robert Bailey", customer: "Eve Loe", service: "Haircut", time: "10:00" }],
+            "2": [ {name: "Felecia Hembram", customer: "Britanya Lee", service: "Braids", time: "12:00" },{name:"Oakland Porter", customer: "Paul Burke", service: "Taper Fade", time: "13:00"}],
+        };
+        function removeStaffMember(name, day) {
+            if (staffAssignments[day]) {
+                staffAssignments[day] = staffAssignments[day].filter(assignment => {
+                    if (typeof assignment === 'string') {
+                        return assignment !== name;
+                    } else {
+                        return assignment.name !== name;
+                    }
+                });
+            }
+            generateCalendar(2023, 11, staffAssignments);
+}
+
+        function showAssignmentDetails(name, customer, service, time) {
+            alert(`Staff Member: ${name}\nCustomer Name: ${customer}\nService: ${service}\nTime: ${time}`);
+        }
+        
+        function generateCalendar(year, month, staffAssignments) {
+            const monthNames = ["January", "February", "March", "April", "May", "June",
+                                "July", "August", "September", "October", "November", "December"];
+            let calendar = `<table><caption>${monthNames[month]} ${year}</caption><tr><th>Sun</th><th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th><th>Sat</th></tr>`;
+            let date = new Date(year, month, 1);
+            let firstDayIndex = date.getDay();
+            let daysInMonth = new Date(year, month + 1, 0).getDate();
+
+            calendar += '<tr>';
+            for (let i = 0; i < firstDayIndex; i++) {
+                calendar += '<td></td>'; // empty cells for days
+            }
+
+            for (let day = 1; day <= daysInMonth; day++) {
+                let staffHtml = staffAssignments[day] ? staffAssignments[day].map((assignment) => {
+                    // handle assignments that are objects with details
+                    let displayDetails = `onclick="showAssignmentDetails('${assignment.name}', '${assignment.customer}', '${assignment.service}', '${assignment.time}')"`;
+                    let removeFunction = `onclick="removeStaffMember('${assignment.name}', ${day})"`;
+
+                    // construct the HTML for each assignment
+                    return `<div class="staff-name" ${displayDetails}>
+                                ${assignment.name}
+                                <span class="remove-btn" ${removeFunction}>X</span>
+                            </div>`;
+                }).join(' ') : '';
+
+                // check to see if its end of the week
+                let endOfWeek = (day + firstDayIndex) % 7 === 0;
+                calendar += `<td><div class="date">${day}</div><div class="staff-list">${staffHtml}</div></td>`;
+                
+                if (endOfWeek && day < daysInMonth) {
+                    calendar += '</tr><tr>'; // end row and start new week
+                }
+            }
+
+            // empty cells and end row
+            let lastDayIndex = new Date(year, month, daysInMonth).getDay();
+            let nextDays = 7 - lastDayIndex - 1;
+            for (let i = 0; i <= nextDays && lastDayIndex !== 6; i++) {
+                calendar += '<td></td>';
+            }
+
+            calendar += '</tr></table>'; //close the table
+            document.getElementById('calendar-container').innerHTML = calendar;
+        }
+
+
+
+            
+        // december calendar and staff
+        generateCalendar(2023, 11, staffAssignments); 
+
+    </script>
+    
+    
+    
+</body>
+</html>

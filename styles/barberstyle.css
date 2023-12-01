@@ -1,0 +1,196 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+#top-banner {
+    background-color: #f8f9fa; /* Light gray background */
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #e7e7e7;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#top-banner span {
+    font-size: 1.1em;
+    color: #333;
+}
+
+#logout-button {
+    background-color: #ff4d4d; /* Red background */
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9em;
+}
+
+#logout-button:hover {
+    background-color: #ff3333; /* Darker red on hover */
+}
+
+nav {
+    background-color: #333;
+    color: white;
+    padding: 10px 0;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    margin: 0 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+nav ul li a:hover {
+    color: #f44336;
+}
+
+section {
+    margin: 30px 15%;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    color: #333;
+    margin-bottom: 20px;
+}
+h3 {
+    color: #333;
+    margin-top: 30px;
+    margin-bottom: 15px;
+}
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+ul li {
+    margin-bottom: 10px;
+    padding: 5px;
+    border-bottom: 1px solid #ddd;
+}
+
+ul li:last-child {
+    border-bottom: none;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    text-align: center;
+    padding: 8px;
+}
+
+details {
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+summary {
+    font-weight: bold;
+    cursor: pointer;
+}
+
+summary::-webkit-details-marker {
+    display: none;
+}
+
+details[open] summary {
+    border-bottom: 1px solid #ddd;
+}
+
+details p {
+    margin-left: 20px;
+}
+.staff-list {
+    font-size: 0.8em;
+    margin-top: 5px;
+    padding: 5px;
+    background-color: #e8f4f8; 
+    border-radius: 8px; 
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2); 
+    color: #333; 
+}
+
+
+.staff-name {
+    display: inline-block;
+    background-color: #8cf09d; 
+    margin: 2px;
+    padding: 2px 5px;
+    border-radius: 5px; 
+    box-shadow: 0 1px 2px rgba(0,0,0,0.15); 
+}
+
+
+.assigned-label {
+    font-weight: bold;
+    color: #0056b3; 
+    margin-right: 5px;
+}
+#service-allocation-form {
+    margin-top: 20px;
+}
+
+#service-allocation-form label {
+    display: block;
+    margin-top: 10px;
+}
+
+#service-allocation-form select {
+    width: 200px;
+    padding: 5px;
+    margin-top: 5px;
+}
+
+#service-allocation-form input[type="submit"] {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#service-allocation-form input[type="submit"]:hover {
+    background-color: #45a049;
+}
+.remove-btn {
+    color: #ff0000;
+    cursor: pointer;
+    margin-left: 5px;
+    font-weight: bold;
+}
+
+.remove-btn:hover {
+    color: #cc0000;
+}
