@@ -78,6 +78,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     trash.addEventListener("click", () => {
         cancelAppointment(appointments.id)
+        alert("Appointment Cancelled")
     })
     
     
