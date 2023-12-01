@@ -30,7 +30,7 @@ button:hover{
     display: flex;
     flex-direction: column;
     background-color: var(--maincolor);
-    background-image: url(imgs/jason-leung-GwmLreV8NkA-unsplash.jpg);
+    background-image: url(../imgs/jason-leung-GwmLreV8NkA-unsplash.jpg);
     background-position: center;
     background-size: cover;
     background-blend-mode: luminosity;

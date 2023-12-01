@@ -1,0 +1,72 @@
+:root{
+    --maincolor: #172A3A;
+    --backgroundcolor: #dcfce7;
+    --accent: #508991;
+    --accent2: #004346;
+}
+
+*{
+    font-size: 16px;
+    font-family: 'Roboto', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+html, body, ul {
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    display: grid;
+    grid-template-rows: 100px 1fr;
+}
+  
+  #filters {
+    background-color: var(--maincolor);
+    color: white;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+  }
+  
+  label {
+    margin-right: 10px;
+  }
+  
+  select {
+    padding: 5px;
+  }
+  
+  .barber-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .barber-item {
+    border: 1px solid #ddd;
+    margin: 10px;
+    padding: 10px;
+    width: 300px;
+    display: inline-block;
+    vertical-align: top;
+  }
+  
+button{
+    width: max-content;
+    align-self: center;
+    justify-self: center;
+    background-color: var(--accent2);
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    color:white;
+    margin: 5px;
+}
+
+button:hover{
+    cursor: pointer;
+}

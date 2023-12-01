@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles/filterstyle.css">
+  <title>Barber Search</title>
+</head>
+
+<body>
+
+  <div id="filters">
+    <label for="rating">Rating:</label>
+    <select id="rating" onchange="filterBarbers()">
+      <option value="">All</option>
+      <option value="5">5 stars</option>
+      <option value="4">4 stars</option>
+      <option value="3">3 stars</option>
+      <option value="2">2 stars</option>
+      <option value="1">1 star</option>
+    </select>
+
+    <label for="specialization">Specialization:</label>
+    <select id="specialization" onchange="filterBarbers()">
+      <option value="">All</option>
+      <option value="haircut">Haircut</option>
+      <option value="beard-trim">Beard Trim</option>
+      <option value="coloring">Coloring</option>
+    </select>
+  </div>
+
+  
+
+  <ul class="barber-list" id="barberList">
+    <!-- Barber items will be dynamically added here -->
+  </ul>
+
+  <button class="filterb">Filter</button>
+  <button class="back">Back</button>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      
+    })
+    // Sample data for barbers
+    const barbers = [
+      {name: "Barber 1", rating: 4, availability: "available", specialization: "haircut"},
+      {name: "Barber 2", rating: 5, availability: "not-available", specialization: "beard-trim"},
+      {name: "Barber 3", rating: 3, availability: "available", specialization: "coloring"},
+      // Add more barbers as needed
+    ];
+
+    // Function to filter and display barbers
+    function filterBarbers() {
+      const ratingFilter = document.getElementById("rating").value;
+      const specializationFilter = document.getElementById("specialization").value;
+
+      const filteredBarbers = barbers.filter(barber => {
+        return (
+          (ratingFilter === '' || barber.rating === parseInt(ratingFilter)) &&
+          (specializationFilter === '' || barber.specialization === specializationFilter)
+        );
+      });
+
+      displayBarbers(filteredBarbers);
+    }
+
+    // Function to display barbers in the HTML
+    function displayBarbers(barbers) {
+      const barberList = document.getElementById("barberList");
+      barberList.innerHTML = '';
+
+      barbers.forEach(barber => {
+        const listItem = document.createElement("li");
+        listItem.className = "barber-item";
+        listItem.innerHTML = `
+                <h3>${barber.name}</h3>
+                <p>Rating: ${barber.rating}</p>
+                <p>Specialization: ${barber.specialization}</p>
+            `;
+        barberList.appendChild(listItem);
+      });
+    }
+
+    let filterB = document.querySelector(".filterb")
+    let back = document.querySelector(".back")
+    filterB.addEventListener("click", () => {
+      filterBarbers();
+    })
+
+    back.addEventListener("click", () => {
+      window.location.href = 'admin.html';
+    })
+
+    // Initial display of all barbers
+    displayBarbers(barbers);
+  </script>
+
+</body>
+
+</html>
