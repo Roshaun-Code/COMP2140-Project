@@ -4,11 +4,15 @@
     --accent: #508991;
 }
 
+*{
+    font-size: 16px;
+    font-family: 'Roboto', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
 body{
     display: flex;
     flex-direction: column;
     margin: 0px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 button:hover{

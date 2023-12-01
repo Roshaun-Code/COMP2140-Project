@@ -1,9 +1,20 @@
+:root{
+    --maincolor: #172A3A;
+    --backgroundcolor: #dcfce7;
+    --accent: #508991;
+    --accent2: #004346;
+}
+
+*{
+    font-size: 16px;
+    font-family: 'Roboto', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
 body {
-    font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
-    color: #333;
+    background-color: var(--backgroundcolor);
+    color: var(--maincolor);
 }
 #top-banner {
     background-color: #f8f9fa; /* Light gray background */
@@ -17,11 +28,11 @@ body {
 
 #top-banner span {
     font-size: 1.1em;
-    color: #333;
+    color: var(--maincolor);
 }
 
 #logout-button {
-    background-color: #ff4d4d; /* Red background */
+    background-color: var(--maincolor);
     color: white;
     padding: 8px 16px;
     border: none;
@@ -31,11 +42,11 @@ body {
 }
 
 #logout-button:hover {
-    background-color: #ff3333; /* Darker red on hover */
+    background-color: var(--accent);
 }
 
 nav {
-    background-color: #333;
+    background-color: var(--maincolor);
     color: white;
     padding: 10px 0;
 }
@@ -59,7 +70,7 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-    color: #f44336;
+    color: var(--maincolor);
 }
 
 section {
@@ -71,11 +82,11 @@ section {
 }
 
 h2 {
-    color: #333;
+    color: var(--maincolor);
     margin-bottom: 20px;
 }
 h3 {
-    color: #333;
+    color: var(--maincolor);
     margin-top: 30px;
     margin-bottom: 15px;
 }
@@ -137,7 +148,7 @@ details p {
     background-color: #e8f4f8; 
     border-radius: 8px; 
     box-shadow: 0 2px 4px rgba(0,0,0,0.2); 
-    color: #333; 
+    color: var(--maincolor); 
 }
 
 
